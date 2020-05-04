@@ -1,0 +1,5 @@
+#ifndef VECTOR
+#define VECTOR
+#include "Vector.hpp"
+#include "Vector.cpp"
+#endif

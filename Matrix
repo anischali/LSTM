@@ -1,0 +1,5 @@
+#ifndef MATRIX
+#define MATRIX
+#include "Matrix.hpp"
+#include "Matrix.cpp"
+#endif
