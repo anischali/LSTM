@@ -47,9 +47,18 @@ Matrix<type>::Matrix(const Matrix<type> &mtrx)
     }
 }
 template <typename type>
-Matrix<type>::Matrix(type **mtrx, int h, int w)
+Matrix<type>::Matrix(type **mtrx, int mh, int mw)
 {
-    
+    this->h = mh;
+    this->w = mw;
+    this->data = (type *) calloc(mh * mw, sizeof(type));
+    for (int ih = 0; ih < mh; ++ih)
+    {
+        for (int iw = 0; iw < mw; ++iw)
+        {
+            data[ih * mw + iw] = mtrx[ih][iw];
+        }
+    }
 }
 
 template <typename type>

@@ -90,7 +90,7 @@ public:
     }
 
     Matrix(const Matrix<type> &mtrx);
-    Matrix(type **mtrx, int h, int w);
+    Matrix(type **mtrx, int mh, int mw);
     Matrix();
     void resize(int h, int w);
     void assign(int h, int w, const type *values);
