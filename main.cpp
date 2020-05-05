@@ -43,22 +43,7 @@ int main(int argc, char const *argv[])
     out.set_value(0, 0.0);
     Network net(2, 2, 1, 10);
     net.forward(xin, out);
-    net.~Network();  
-    /*
-    double m[2] = {1.0, 0.0};
-    LSTM lstm(2, 4);
-    Vector<double> c0, h0;
-    c0.resize(4);
-    h0.resize(4);
-    c0 = rand_normal_distribution_vector(4);
-    h0 = rand_normal_distribution_vector(4);
-    lstm.randInit();
-    lstm.print_state();
-    lstm.process_input(m, h0, c0);
-    lstm.print_state();
-    lstm.~LSTM();
     
-    */
     return 0;
 }
 

@@ -87,7 +87,6 @@ Network::~Network()
 {
     for (int iunit = 0; iunit < this->nunites_; iunit++)
     {
-        if (iunit == this->nunites_) break;
         printf("%d \n", iunit);
         if (units[iunit] != nullptr)
         {

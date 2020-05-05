@@ -80,8 +80,8 @@ void LSTM::init(int input_size, int hidden_size)
 
 LSTM::~LSTM()
 {
-    this->in_size = 0;
-    this->h_size = 0;
+    //this->in_size = 0;
+    //this->h_size = 0;
 
     this->W_i.~Matrix();
     this->W_f.~Matrix();
