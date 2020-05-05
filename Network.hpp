@@ -87,7 +87,6 @@ Network::~Network()
 {
     for (int iunit = 0; iunit < this->nunites_; iunit++)
     {
-        printf("%d \n", iunit);
         if (units[iunit] != nullptr)
         {
             this->units[iunit]->~LSTM();

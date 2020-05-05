@@ -11,7 +11,7 @@ class LSTM
 {
 private:
     int in_size = 0, h_size = 0;
-    Vector<double> x, f, i, o, g, c, h,
+    Vector<double> f, i, o, g, c, h,
                    b_i, b_f, b_o, b_g;
     Matrix<double> W_i, W_f, W_o, W_g,
         U_i, U_f, U_o, U_g;
