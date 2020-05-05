@@ -5,7 +5,7 @@ CFLAGS =
 CPPFLAGS = -g -I.
 LDFLAGS = -lm 
 # définition des fichiers et dossiers
-PROGNAME = LSTM
+PROGNAME = LSTM.bin
 VERSION = 1.0
 distdir = $(PROGNAME)-$(VERSION)
 HEADERS = 
