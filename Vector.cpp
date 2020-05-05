@@ -34,6 +34,17 @@ void Vector<type>::resize(int size)
 }
 
 template <typename type>
+Vector<type>::Vector(type *src, int vsize)
+{
+    this->size = vsize;
+    this->data = (type *) calloc(vsize, sizeof(type));
+    for (int iv = 0; iv < vsize; ++iv)
+    {
+        this->data[iv] = src[iv];
+    }
+}
+
+template <typename type>
 Vector<type>::Vector(Vector<type> &vec)
 {
     this->size = vec.get_size();

@@ -70,6 +70,7 @@ public:
 
     Vector<type> &filter(type (*filter_func)(type v));
     Vector(Vector<type> &vec);
+    Vector(type *src, int vsize);
     Vector();
     Vector<type> get_filtered(type (*filter_func)(type v));
     void resize(int size);

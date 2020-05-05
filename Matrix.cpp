@@ -46,6 +46,11 @@ Matrix<type>::Matrix(const Matrix<type> &mtrx)
         this->data[idx] = tdata[idx];
     }
 }
+template <typename type>
+Matrix<type>::Matrix(type **mtrx, int h, int w)
+{
+    
+}
 
 template <typename type>
 Matrix<type>::~Matrix()
