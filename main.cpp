@@ -2,8 +2,8 @@
 #include <iostream>
 #include <cmath>
 #include "Network.hpp"
-
-
+#include "LSTM.hpp"
+#include "Matrix.hpp"
 
 using namespace std;
 
@@ -34,16 +34,50 @@ using namespace std;
 */
 int main(int argc, char const *argv[])
 {
-    Vector<double> xin, out;
-    xin.resize(2);
-    out.resize(1);
-    double in[2] = {0.0, 0.0};
-    xin = in;
-    xin.print();
-    out.set_value(0, 0.0);
-    Network net(2, 2, 1, 10);
-    net.forward(xin, out);
+    double Wg[2] = {0.45, 0.25};
+    double Wi[2] = {0.95,0.8};
+    double Wf[2] = {0.7, 0.45};
+    double Wo[2] = {0.9,0.4};
+    double Ug[1] = {0.15};
+    double Ui[1] = {0.8};
+    double Uf[1] = {0.1};
+    double Uo[1] = {0.25};
+
+    double bg[1] = {0.2};
+    double bi[1] = {0.65};
+    double bf[1] = {0.15};
+    double bo[1] = {0.1};
     
+    double x0[2] = {1.0,2.0};
+    double x1[2] = {0.5,3.0};
+    double tmp[1] = {0.0}; 
+
+    Vector<double> h0(tmp, 1);
+    Vector<double> c0(tmp, 1);
+    
+
+    LSTM cell;
+    cell.init(2,1);
+    cell.b_f = bf;
+    cell.b_g = bg;
+    cell.b_i = bi;
+    cell.b_o = bo;
+
+
+    cell.W_i.set(Wf);
+    cell.W_g.set(Wg);
+    cell.W_i.set(Wi);
+    cell.W_o.set(Wo);
+
+    cell.U_i.set(Uf);
+    cell.U_g.set(Ug);
+    cell.U_i.set(Ui);
+    cell.U_o.set(Uo);
+    Vector<double>xp(x0, 1);
+    cell.process_input(xp, h0, c0);
+
+    cell.print_state();
+
     return 0;
 }
 

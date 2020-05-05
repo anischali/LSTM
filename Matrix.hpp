@@ -56,7 +56,6 @@ public:
         }
     };
 
-
     Vector<type> operator*(const Vector<type> &v)
     {
         int svec = v.get_size();
@@ -80,7 +79,8 @@ public:
         return rvec;
     }
 
-    Matrix<type>& operator=(const Matrix<type> &m)
+
+    Matrix<type> &operator=(const Matrix<type> &m)
     {
         int msize = m.length();
         type *mptr = m.get_data();
@@ -99,8 +99,8 @@ public:
     int cols_size() const;
     type *get_data() const;
     void print();
+    void set(type *mptr);
     ~Matrix();
 };
-
 
 #endif

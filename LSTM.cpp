@@ -36,13 +36,16 @@ void LSTM::process_input(double *input, Vector<double> h0, Vector<double> c0)
 
 void LSTM::process_input(Vector<double> x, Vector<double> h0, Vector<double> c0)
 {
-    this->f = (this->W_f * x + this->U_f * h0 + this->b_f).filter(sigmoid);
-    this->i = (this->W_i * x + this->U_i * h0 + this->b_i).filter(sigmoid);
-    this->o = (this->W_o * x + this->U_o * h0 + this->b_o).filter(sigmoid);
-    this->g = (this->W_g * x + this->U_g * h0 + this->b_g).filter(tanh);
-    this->c = (this->f * c0 + this->i * this->g);
-    this->h = (this->o * this->c.get_filtered(tanh));
+    this->g = ((this->W_g * x) + (this->U_g * h0) + this->b_g).filter(tanh);
+    this->i = ((this->W_i * x) + (this->U_i * h0) + this->b_i).filter(sigmoid);
+    this->f = ((this->W_f * x) + (this->U_f * h0) + this->b_f).filter(sigmoid);
+    this->o = ((this->W_o * x) + (this->U_o * h0) + this->b_o).filter(sigmoid);
+    this->c = ((this->f * c0) + (this->i * this->g));
+    this->h = (this->o * (this->c.get_filtered(tanh)));
 }
+
+
+
 
 
 

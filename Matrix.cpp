@@ -1,8 +1,6 @@
 #include "Matrix.hpp"
 
-
 using namespace std;
-
 
 template <typename type>
 Matrix<type>::Matrix()
@@ -11,6 +9,17 @@ Matrix<type>::Matrix()
     this->w = 0;
 }
 
+template <typename type>
+void Matrix<type>::set(type *mptr)
+{
+    int h_ = this->h;
+    int w_ = this->w;
+    for (int ih = 0; ih < h_; ++ih)
+    {
+        for (int iw = 0; iw < w_; ++iw)
+            this->data[ih * w_ + iw] = mptr[ih * w_ + iw];
+    }
+}
 
 template <typename type>
 void Matrix<type>::resize(int h_, int w_)
@@ -51,7 +60,7 @@ Matrix<type>::Matrix(type **mtrx, int mh, int mw)
 {
     this->h = mh;
     this->w = mw;
-    this->data = (type *) calloc(mh * mw, sizeof(type));
+    this->data = (type *)calloc(mh * mw, sizeof(type));
     for (int ih = 0; ih < mh; ++ih)
     {
         for (int iw = 0; iw < mw; ++iw)

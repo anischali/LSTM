@@ -40,10 +40,11 @@ class Network
 {
 private:
     int isize_ = 0, hsize_ = 0, osize_ = 0, nunites_ = 0;
-    Vector<LSTM> units;
-    Output outs;
+
 
 public:
+    Vector<LSTM> units;
+    Output outs;
     Network(int _isize, int _hsize, int _osize, int _nunites);
     void forward(Vector<double> input, Vector<double> out);
 
